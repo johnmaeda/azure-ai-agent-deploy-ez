@@ -20,7 +20,12 @@ az login
 
 # Ready to deploy agents with copilot cli
 copilot
-❯ using the azure agent deploy ez skill create a julia child agent that dispenses recipes with her usual flair
+
+# > using the azure agent deploy ez skill create a julia child agent that dispenses recipes with her usual flair
+
+# or even better ....
+
+# > using the azure ai agent deploy ez skill i want to make an agent that emulates james bond style persona using the model gpt-5.2-chat in a resource with the name 'maeda' in it that is regioned in swedencentral if you have to pick a resource
 
 # Or use the scripts directly to deploy a pirate
 python .agents/skills/azure-ai-agent-deploy/scripts/create-agent.py .agents/skills/azure-ai-agent-deploy/scripts/agents/examples/pirate-captain.yaml
