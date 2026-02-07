@@ -13,8 +13,17 @@ Or use the .agent.txt file:
 import sys
 from pathlib import Path
 
-from azure.identity import DefaultAzureCredential
-from azure.ai.projects import AIProjectClient
+# Check dependencies before importing
+try:
+    from azure.identity import DefaultAzureCredential
+    from azure.ai.projects import AIProjectClient
+except ImportError as e:
+    print(f"\n❌ Missing required Python dependencies: {e}")
+    print("\n   Install with:")
+    print("   pip install azure-ai-projects==2.0.0b3 azure-identity openai")
+    print("\n   Or if you have requirements.txt:")
+    print("   pip install -r requirements.txt")
+    sys.exit(1)
 
 
 def parse_agent_file(file_path: str) -> tuple[str, str]:

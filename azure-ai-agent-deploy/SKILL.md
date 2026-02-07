@@ -11,6 +11,43 @@ This skill guides the deployment of simple prompt-based Azure AI agents to Azure
 
 **📦 Self-Contained:** This skill includes all required Python scripts, bash scripts, and the agents module in the `scripts/` directory. No external repository dependencies are needed.
 
+## Dependencies
+
+**Core Python packages required:**
+```
+azure-ai-projects==2.0.0b3
+azure-ai-agents==1.1.0
+azure-identity==1.25.1
+azure-core==1.38.0
+openai==2.16.0
+PyYAML==6.0.3
+```
+
+**Full requirements:** See `scripts/requirements.txt` for complete pinned dependencies.
+
+**System requirements:**
+- Python 3.10+
+- Azure CLI (`az`) - must be installed and logged in
+
+## Pre-Flight Check (IMPORTANT)
+
+**Before running any deployment commands, verify the environment is ready:**
+
+```bash
+# 1. Check Python dependencies are installed
+python -c "from azure.ai.projects import AIProjectClient; from azure.identity import DefaultAzureCredential; import yaml; print('✅ Dependencies OK')" 2>/dev/null || echo "❌ Missing dependencies - run: pip install -r requirements.txt"
+
+# 2. Check Azure CLI is installed and logged in
+az account show >/dev/null 2>&1 && echo "✅ Azure CLI OK" || echo "❌ Azure CLI not ready - run: az login"
+```
+
+**If dependencies are missing**, install them:
+```bash
+pip install -r requirements.txt
+# OR install core packages directly:
+pip install azure-ai-projects==2.0.0b3 azure-identity PyYAML openai
+```
+
 ## Quick Start
 
 **Setup:** Copy the `scripts/` directory from this skill to your working directory.
@@ -26,8 +63,10 @@ The complete workflow involves 3 steps:
 # Setup (one time)
 cp -r scripts/* ./
 
-# Install dependencies
+# Install dependencies (REQUIRED before deployment)
 pip install -r requirements.txt
+
+# Verify Azure login
 az login
 
 # 1. Create or use example: agents/examples/my-agent.yaml

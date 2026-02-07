@@ -16,6 +16,19 @@ from pathlib import Path
 # Add agents module to path
 sys.path.insert(0, str(Path(__file__).parent))
 
+# Check dependencies before importing
+try:
+    import yaml
+    from azure.ai.projects import AIProjectClient
+    from azure.identity import DefaultAzureCredential
+except ImportError as e:
+    print(f"\n❌ Missing required Python dependencies: {e}")
+    print("\n   Install with:")
+    print("   pip install azure-ai-projects==2.0.0b3 azure-identity PyYAML openai")
+    print("\n   Or if you have requirements.txt:")
+    print("   pip install -r requirements.txt")
+    sys.exit(1)
+
 from agents.yaml_parser import parse_agent_yaml, AgentConfig
 from agents.azure_discovery import AzureDiscovery, AzureProject, ModelDeployment, select_from_list
 from agents.agent_builder import AgentBuilder
