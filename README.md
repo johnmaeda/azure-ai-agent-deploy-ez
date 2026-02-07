@@ -12,18 +12,18 @@ If you're using this toolkit as a skill for AI coding agents:
 # Install the skill from GitHub
 npx skills add https://github.com/johnmaeda/azure-ai-agent-deploy-ez --skill azure-ai-agent-deploy
 
-# The skill will be installed to ~/.skills/azure-ai-agent-deploy/
-# Copy bundled scripts to your working directory
-cp -r ~/.skills/azure-ai-agent-deploy/scripts/* ./
-
 # Install Python dependencies
-pip install -r requirements.txt
+pip install -r .agents/skills/azure-ai-agent-deploy/scripts/requirements.txt
 
 # Login to Azure
 az login
 
-# Ready to deploy agents!
-python create-agent.py agents/examples/pirate-captain.yaml
+# Ready to deploy agents with copilot cli
+copilot
+❯ using the azure agent deploy ez skill create a julia child agent that dispenses recipes with her usual flair
+
+# Or use the scripts directly to deploy a pirate
+python .agents/skills/azure-ai-agent-deploy/scripts/create-agent.py .agents/skills/azure-ai-agent-deploy/scripts/agents/examples/pirate-captain.yaml
 ```
 
 
