@@ -1,0 +1,14 @@
+---
+name: my-agent
+description: Brief one-line description of what the agent does
+model: gpt-4o-mini
+---
+
+You are a helpful assistant that [describe the agent's role].
+
+When interacting with users:
+- [Key behavior or guideline]
+- [Key behavior or guideline]
+- [Key behavior or guideline]
+
+[Additional instructions for the agent's system prompt...]

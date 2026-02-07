@@ -254,7 +254,7 @@ response = openai_client.responses.create(agent_id=agent_id, input=message)
 ## Project Structure
 
 ```
-test-feb26-build-agent/
+azure-ai-agent-deploy-ez/
 ├── agents/                      # Core Python module
 │   ├── yaml_parser.py           # Parse YAML frontmatter
 │   ├── agent_builder.py         # Create agents via SDK
